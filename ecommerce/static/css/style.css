@@ -1,0 +1,10 @@
+a{
+    text-decoration: none;
+}
+
+.group{
+    background-image: url("../images/chuttersnap-BNBA1h-NgdY-unsplash-scaled.jpg");
+    background-size: 100%;
+    padding: 3% 40% 24% 2%;
+    color: white;
+}

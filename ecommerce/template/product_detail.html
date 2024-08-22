@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'main' %}
+
+<div class="row mt-3 p-2 bg-light"><!--2nd row start / main section start-->
+    <div class="col-md-9 mx-auto p-3">
+        {% if success %}
+            <div class="alert alert-success" role="alert">
+                {{success}}
+            </div>
+        {% endif %}
+        {% if errormsg %}
+            <div class="alert alert-danger" role="alert">
+                {{errormsg}}
+            </div>
+        {% endif %}
+        {% for i in data %}
+        <div class="row shadow">
+            <div class="col-md-5">
+                <img src="{{i.product_image.url}}" class="card-img-top" alt="image">
+            </div><!--image section end-->
+            <div class="col-md-7">
+                <p><strong>Product Name: </strong>{{i.name}}</p>
+                {% if i.category == 1 %}
+                <p><strong>Category:</strong>Mobile</p>
+                {% elif i.category == 2 %}
+                <p><strong>Category:</strong>Shoes</p>
+                {% else %}
+                <p><strong>Category:</strong>Cloth</p>
+                {% endif %}
+                
+
+                <p><strong>Product Detail:</strong>{{i.product_detail}}</p>
+                <p><strong>Price:</strong>{{i.price}}</p>
+
+                <p>
+                    <a href="/addtocart/{{i.id}}"><button class="btn btn-danger">Add To Cart</button></a>
+                    <a href="/cart"><button class="btn btn-danger">View Cart</button></a>
+                    <a href="/product"><button class="btn btn-danger">Shop More</button></a>
+                </p>
+            </div><!--product detail end-->
+        </div>
+        {% endfor %}
+    </div>
+</div><!--2nd row end / main section end-->
+
+{% endblock 'main' %}
